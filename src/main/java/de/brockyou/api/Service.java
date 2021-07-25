@@ -5,8 +5,6 @@ package de.brockyou.api;
 public class Service {
 
     public boolean isPwned(String password) {
-
         return true;
-
     }
 }

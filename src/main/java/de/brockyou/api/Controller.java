@@ -16,6 +16,5 @@ public class Controller {
     @GetMapping(path ="/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean isPwned(@PathVariable String password) {
         return service.isPwned(password);
-
     }
 }
