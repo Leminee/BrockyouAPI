@@ -1,20 +1,21 @@
 package de.brockyou.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("brockyou/api/v1")
 public class Controller {
 
-    private final Service service;
+    @Autowired
+    private Repository repository;
 
-    public Controller(Service service) {
-        this.service = service;
-    }
 
-    @GetMapping(path ="/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public boolean isPwned(@PathVariable String password) {
-        return service.isPwned(password);
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Password> getAllPasswords() {
+        return repository.findAll();
     }
 }
