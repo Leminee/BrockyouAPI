@@ -1,23 +1,18 @@
 package de.brockyou.api;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Table()
+@Entity(name="leaked_password")
 public class Password {
 
     @Id
-    public String id;
     public String pass;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getPass() {
         return pass;
@@ -25,5 +20,9 @@ public class Password {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public int getPassLength() {
+        return pass.length();
     }
 }

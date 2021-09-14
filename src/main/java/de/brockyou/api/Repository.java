@@ -1,9 +1,8 @@
 package de.brockyou.api;
 
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 @org.springframework.stereotype.Repository
-public interface Repository extends MongoRepository<Password,String>{
+public interface Repository extends JpaRepository<Password, String> {
 
 }
