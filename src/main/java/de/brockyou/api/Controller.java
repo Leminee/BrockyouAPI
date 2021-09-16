@@ -15,12 +15,13 @@ public class Controller {
     }
 
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public boolean isPwned(@PathVariable String password) {
+    public Password getPassData(@PathVariable String password) {
 
-        if (password.length() < 6) {
-            return true;
-        }
+        boolean hasBeenLeaked = password.length() < 6 || repository.existsById(password);
 
-        return repository.existsById(password);
+        Password pass = new Password(password,hasBeenLeaked);
+
+        return pass;
+
     }
 }
