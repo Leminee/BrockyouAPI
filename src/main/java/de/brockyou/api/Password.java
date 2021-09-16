@@ -1,6 +1,7 @@
 package de.brockyou.api;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,16 +12,11 @@ import javax.persistence.Table;
 public class Password {
 
     @Id
-    public String pass;
+    @Column(name = "pass", nullable = false)
+    private String pass;
 
-    public boolean hasBeenLeaked;
-    public int passLength;
-
-    public Password(String pass, boolean isPwned) {
+    public Password(String pass) {
         this.pass = pass;
-        this.hasBeenLeaked = hasBeenLeaked;
-        this.passLength = pass.length();
-
     }
 
     public Password() {
@@ -29,8 +25,5 @@ public class Password {
 
     public String getPass() {
         return pass;
-    }
-    public int getPassLength() {
-        return pass.length();
     }
 }
