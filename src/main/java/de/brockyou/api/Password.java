@@ -13,7 +13,6 @@ public class Password {
     @Id
     public String pass;
 
-
     public String getPass() {
         return pass;
     }
