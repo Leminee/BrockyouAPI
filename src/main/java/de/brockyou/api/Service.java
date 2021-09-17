@@ -1,5 +1,7 @@
 package de.brockyou.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.inject.Inject;
 import java.util.List;
 
@@ -13,19 +15,8 @@ public class Service {
         this.repository = repository;
     }
 
-
     public long getRowCount() {
         return repository.count();
-    }
-
-    public void deletePassword(Password password) {
-
-        repository.delete(password);
-    }
-
-    public Password addNewPassword(Password password) {
-
-        return repository.save(password);
     }
 
 
@@ -39,9 +30,8 @@ public class Service {
 
     private boolean rowExists(String password) {
 
-        List<Password> pass = repository.findByPass(password);
+        List<Password> passList = repository.findByPass(password);
 
-        return pass.size() > 0;
+        return passList.size() > 0;
     }
-    
 }

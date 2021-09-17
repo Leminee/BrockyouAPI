@@ -3,14 +3,16 @@ package de.brockyou.api;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@NamedQuery(name = "Password.findById", query = "SELECT p FROM leaked_password p WHERE p.pass=:password")
+@NamedQuery(name = "Password.findById", query = "SELECT pass FROM leaked_password WHERE pass=:password")
 @Entity(name = "leaked_password")
 public class Password {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_pass")
     private Long id;
 
+    @Column(name = "pass")
     @NotNull
     private String pass;
 
@@ -24,5 +26,9 @@ public class Password {
 
     public String getPass() {
         return pass;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

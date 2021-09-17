@@ -9,8 +9,6 @@ import java.util.List;
 public interface Repository extends JpaRepository<Password, String>, EntityGraphJpaSpecificationExecutor<Password> {
 
     @Transactional
-    List <Password> findByPass(String password);
-
-
+    List<Password> findByPass(String password);
 
 }
