@@ -5,23 +5,42 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 
-
 @RestController
 @RequestMapping("brockyou/api/v1")
 public class Controller {
 
-    private final Repository repository;
+    private final Service service;
 
     @Inject
-    public Controller(Repository repository) {
-        this.repository = repository;
+    public Controller( Service service) {
+        this.service = service;
     }
 
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PasswordData getPassData(@PathVariable String password) {
+    public PasswordData getPassData(@PathVariable("password") String password) {
 
-        boolean hasBeenLeaked = password.length() < 6 || repository.existsById(password);
 
-        return new PasswordData(new Password(password).getPass(), hasBeenLeaked, password.length());
+        return service.getPassInfo(password);
+    }
+
+
+    @GetMapping(path = "/amount", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Long getAmountPasswords() {
+
+        return service.getRowCount();
+    }
+
+
+    @PostMapping(path = "/add/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Password addNewPassword(@PathVariable("password") Password password) {
+
+        return service.addNewPassword(password);
+    }
+
+
+    @DeleteMapping(path = "/delete/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deletePassword(@PathVariable("password") Password password) {
+
+        service.deletePassword(password);
     }
 }
