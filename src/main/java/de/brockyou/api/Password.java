@@ -1,18 +1,17 @@
 package de.brockyou.api;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Table()
+@NamedQuery(name = "Password.findById", query = "SELECT p FROM leaked_password p WHERE p.pass=:password")
 @Entity(name = "leaked_password")
 public class Password {
 
     @Id
-    @Column(name = "pass", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
     private String pass;
 
     public Password(String pass) {

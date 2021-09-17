@@ -1,27 +1,43 @@
 package de.brockyou.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 
+
 @RestController
+@CrossOrigin
 @RequestMapping("brockyou/api/v1")
 public class Controller {
 
+    @Autowired
     private final Service service;
 
+    @Autowired
     @Inject
-    public Controller( Service service) {
+    private final Repository repository;
+
+    @Inject
+    public Controller(Service service, Repository repository) {
         this.service = service;
+        this.repository = repository;
     }
 
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PasswordData getPassData(@PathVariable("password") String password) {
+    public ResponseEntity<?> getPassData(@PathVariable("password") String password) {
 
+        try {
+            return ResponseEntity.ok(service.getPassInfo(password));
 
-        return service.getPassInfo(password);
+        } catch (Exception e) {
+            return ResponseEntity.ok("");
+        }
     }
+
+
 
 
     @GetMapping(path = "/amount", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,11 +46,15 @@ public class Controller {
         return service.getRowCount();
     }
 
-
     @PostMapping(path = "/add/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Password addNewPassword(@PathVariable("password") Password password) {
+    public String addNewPassword(@PathVariable("password") String password) {
 
-        return service.addNewPassword(password);
+        Password current = new Password(password);
+
+       Password res = repository.saveAndFlush(current);
+
+       return res.getPass();
+
     }
 
 
