@@ -36,3 +36,9 @@ build/
 
 logs/
 .DS_Store
+src/.DS_Store
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/META-INF/
+src/main/resources/META-INF
+.mvn

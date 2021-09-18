@@ -1,3 +1,3 @@
 package de.brockyou.api;
 
-public record PasswordData (String givenPassword, Boolean hasBeenLeaked, Integer passwordLength){}
+public record PasswordData (String givenPassword, boolean hasBeenLeaked, int passwordLength){}

@@ -17,6 +17,8 @@
 		<java.version>15</java.version>
 	</properties>
 
+	<packaging>jar</packaging>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -108,7 +110,6 @@
 			</plugin>
 
 					<plugin>
-						<!-- Build an executable JAR -->
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>3.1.0</version>
@@ -116,11 +117,16 @@
 							<archive>
 								<manifest>
 									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-									<mainClass>com.mypackage.MyClass</mainClass>
+									<classpathPrefix>src/</classpathPrefix>
+									<mainClass>de.brockyou.api.MainApplication</mainClass>
 								</manifest>
 							</archive>
 						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
 					</plugin>
 
         </plugins>

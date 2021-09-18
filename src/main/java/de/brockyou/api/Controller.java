@@ -28,7 +28,7 @@ public class Controller {
 
 
     @GetMapping(path = "/amount", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Long getAmountPasswords() {
+    public long getAmountPasswords() {
 
         return service.getRowCount();
     }
