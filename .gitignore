@@ -39,6 +39,8 @@ logs/
 src/.DS_Store
 src/main/.DS_Store
 src/main/java/.DS_Store
+src/main/java/de/.DS_Store
+src/main/java/de/brockyou/.DS_Store
 src/main/java/META-INF/
 src/main/resources/META-INF
 .mvn

@@ -9,10 +9,8 @@ public class Password {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_pass")
     private Long id;
 
-    @Column(name = "pass")
     @NotNull
     private String pass;
 
@@ -28,7 +26,4 @@ public class Password {
         return pass;
     }
 
-    public Long getId() {
-        return id;
-    }
 }

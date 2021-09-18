@@ -1,9 +1,7 @@
 package de.brockyou.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Inject;
-import java.util.List;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -30,8 +28,7 @@ public class Service {
 
     private boolean rowExists(String password) {
 
-        List<Password> passList = repository.findByPass(password);
+        return repository.findByPass(password).size() > 0;
 
-        return passList.size() > 0;
     }
 }
