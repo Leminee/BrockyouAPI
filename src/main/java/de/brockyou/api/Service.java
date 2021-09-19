@@ -1,6 +1,5 @@
 package de.brockyou.api;
 
-
 import javax.inject.Inject;
 
 @org.springframework.stereotype.Service
