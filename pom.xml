@@ -14,7 +14,7 @@
 	<name>brockyou.api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<packaging>jar</packaging>
@@ -73,6 +73,7 @@
 			<version>5.5.7.Final</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -94,7 +95,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>15</release>
+					<release>17</release>
 					<compilerArgs>
 						<arg>--enable-preview</arg>
 					</compilerArgs>
