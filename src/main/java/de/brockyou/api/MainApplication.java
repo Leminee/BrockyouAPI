@@ -25,8 +25,6 @@ public class MainApplication {
 
     }
 
-
-
     @Bean
     public ServletWebServerFactory servletContainer() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
