@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 @RestController
 @CrossOrigin
-@RequestMapping("brockyou/api/v1")
+@RequestMapping("brockyou/api/v2")
 public class Controller {
 
     private final Service service;
@@ -23,9 +25,10 @@ public class Controller {
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getPassData(@PathVariable("password") @NotNull String password) {
 
-        return ResponseEntity.ok(service.getPassInfo(password));
-    }
 
+        return ResponseEntity.ok(service.getPassInfo(password));
+
+    }
 
     @GetMapping(path = "/amount/passwords", produces = MediaType.APPLICATION_JSON_VALUE)
     public long getAmountPasswords() {

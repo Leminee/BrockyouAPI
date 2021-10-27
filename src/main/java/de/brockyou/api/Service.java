@@ -19,7 +19,7 @@ public class Service {
 
     public PasswordData getPassInfo(String password) {
 
-        boolean hasBeenLeaked = password.length() < 6 || rowExists(password);
+        boolean hasBeenLeaked = password.length() < 8 || rowExists(password);
 
         return new PasswordData(new Password(password).getPass(), hasBeenLeaked, password.length());
     }
