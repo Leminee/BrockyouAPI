@@ -120,7 +120,7 @@
 								<manifest>
 									<addClasspath>true</addClasspath>
 									<classpathPrefix>src/</classpathPrefix>
-									<mainClass>de.brockyou.api.MainApplication</mainClass>
+									<mainClass>tech.goodquestion.brockyou.api.MainApplication</mainClass>
 								</manifest>
 							</archive>
 						</configuration>

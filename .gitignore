@@ -44,3 +44,5 @@ src/main/java/de/brockyou/.DS_Store
 src/main/java/META-INF/
 src/main/resources/META-INF
 .mvn
+mvnw
+mvnw.cmd

@@ -1,4 +1,4 @@
-package de.brockyou.api;
+package tech.goodquestion.brockyou.api;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 @RestController
 @CrossOrigin
@@ -23,8 +21,7 @@ public class Controller {
     }
 
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getPassData(@PathVariable("password") @NotNull String password) {
-
+    public ResponseEntity<PasswordData> getPassData(@PathVariable("password") @NotNull String password) {
 
         return ResponseEntity.ok(service.getPassInfo(password));
 

@@ -1,4 +1,4 @@
-package de.brockyou.api;
+package tech.goodquestion.brockyou.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

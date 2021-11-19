@@ -1,4 +1,4 @@
-package de.brockyou.api;
+package tech.goodquestion.brockyou.api;
 
 import com.cosium.spring.data.jpa.entity.graph.repository.support.EntityGraphJpaRepositoryFactoryBean;
 import org.apache.catalina.Context;
@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories(
         repositoryFactoryBeanClass = EntityGraphJpaRepositoryFactoryBean.class,
-        basePackages = {"de.brockyou.api"}
+        basePackages = {"tech.goodquestion.brockyou.api"}
 )
 public class MainApplication {
 

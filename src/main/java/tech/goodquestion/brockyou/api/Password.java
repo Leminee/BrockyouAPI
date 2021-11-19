@@ -1,14 +1,16 @@
-package de.brockyou.api;
+package tech.goodquestion.brockyou.api;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@NamedQuery(name = "Password.findById", query = "SELECT pass FROM leaked_password WHERE pass=:password")
-@Entity(name = "leaked_password")
+
+@Entity()
+@Table(name ="leaked_password")
 public class Password {
 
+
+    @GeneratedValue
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_pass")
     private Long id;
 

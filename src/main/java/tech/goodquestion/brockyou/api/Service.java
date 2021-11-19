@@ -1,4 +1,4 @@
-package de.brockyou.api;
+package tech.goodquestion.brockyou.api;
 
 import javax.inject.Inject;
 
