@@ -7,6 +7,6 @@ import java.util.List;
 public interface Repository extends JpaRepository<Password, String> {
 
     @Query(value = "SELECT pass FROM leaked_password WHERE pass=:password", nativeQuery = true)
-    List<Password> findByPass(String password);
+    List<Password> findByPass(final String password);
 
 }

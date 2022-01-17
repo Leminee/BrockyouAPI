@@ -15,21 +15,16 @@ public class Controller {
     private final Service service;
 
     @Inject
-    public Controller(Service service) {
+    public Controller(final Service service) {
         this.service = service;
 
     }
 
     @GetMapping(path = "/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PasswordData> getPassData(@PathVariable("password") @NotNull String password) {
+    public ResponseEntity<PasswordData> getPassData(@PathVariable("password") final String password) {
 
         return ResponseEntity.ok(service.getPassInfo(password));
 
     }
 
-    @GetMapping(path = "/amount/passwords", produces = MediaType.APPLICATION_JSON_VALUE)
-    public long getAmountPasswords() {
-
-        return service.getRowCount();
-    }
 }

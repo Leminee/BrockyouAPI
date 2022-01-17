@@ -8,24 +8,19 @@ public class Service {
     private final Repository repository;
 
     @Inject
-    public Service(Repository repository) {
+    public Service(final Repository repository) {
         this.repository = repository;
     }
 
-    public long getRowCount() {
-        return repository.count();
-    }
+    public PasswordData getPassInfo(final String password) {
 
-
-    public PasswordData getPassInfo(String password) {
-
-        boolean hasBeenLeaked = password.length() < 8 || rowExists(password);
+        final boolean hasBeenLeaked = password.length() < 8 || rowExists(password);
 
         return new PasswordData(new Password(password).getPass(), hasBeenLeaked, password.length());
     }
 
 
-    private boolean rowExists(String password) {
+    private boolean rowExists(final String password) {
 
         return repository.findByPass(password).size() > 0;
 

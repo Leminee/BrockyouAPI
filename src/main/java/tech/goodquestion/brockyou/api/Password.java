@@ -1,7 +1,6 @@
 package tech.goodquestion.brockyou.api;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 
 @Entity()
@@ -11,10 +10,10 @@ public class Password {
 
     @GeneratedValue
     @Id
-    @Column(name = "id_pass")
-    private Long id;
+    @Column(name = "id_pass", nullable = false)
+    private long id;
 
-    @NotNull
+    @Column(name ="pass", nullable = false)
     private String pass;
 
     public Password(String pass) {
